@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details about {{ details.first_name }} {{ details.last_name }}</title>
+</head>
+<body>
+<h2>Detalii in legatura cu profesorul {{detailss.first_name }} {{ detailss.last_name }}</h2>
+<p>Profesorul s-a nascut in data de: {{ detailss.date_of_birth|date:"d-m-Y" }}</p>
+<p>Email-ul profesorului este {{ detailss.email }}</p>
+<p>CNP: {{ detailss.cnp }}</p>
+<P>Adresa profesorului este: {{ detailss.adress }}</P>
+</body>
+</html>

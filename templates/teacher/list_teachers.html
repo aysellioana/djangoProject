@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block name_of_title %} List of teachers {% endblock %}
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name of teachers</th>
+            <th>C.N.P</th>
+            <th>Adress</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for teacher in all_teachers %}
+            <tr>
+                <td>{{ teacher.first_name }} {{ teacher.last_name }}</td>
+                <td>{{ teacher.cnp }}</td>
+                <td>{{ teacher.adress }}</td>
+                <td>
+                    {% if perms.profesor.change_teacher %}
+                        <a href="{% url 'update-teacher' teacher.id %}" class="btn btn-primary">Update</a>
+                    {% endif %}
+                    {% if perms.profesor.view_teacher %}
+                        <a href="{% url 'detail-teacher' teacher.id %}" class="btn btn-outline-danger"> More datails</a>
+                    {% endif %}
+                    {% if perms.profesor.delete_teacher %}
+                        <a href="{% url 'delete-teacher' teacher.id %}" class="btn btn-outline-success">Delete</a>
+                    {% endif %}
+                {% if perms.profesor.export_pdft %}
+                <a href="{% url 'export-to-pdf-detail-teacher' teacher.id %}" class="btn btn-outline-danger" target="_blank">Export to pdf</a>
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

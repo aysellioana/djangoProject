@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block name_of_title %} Details student {% endblock %}
+{% block content %}
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ student.first_name }} {{ student.last_name }}</h5>
+    <p class="card-text">Email address: {{ student.email }}</p>
+    <p class="card-text">Age: {{ student.age }}</p>
+    <p class="card-text">C.N.P: {{ student.cnp }}</p>
+    <p class="card-text">Date of birth {{ student.date_of_birth }}. PS: LMAAAAAAA</p>
+    <a href="{% url 'list-of-students' %}" class="btn btn-outline-primary">Cancel</a>
+  </div>
+  <div class="card-footer text-muted">
+    Created at {{ student.created_at }}
+  </div>
+</div>
+{% endblock %}
